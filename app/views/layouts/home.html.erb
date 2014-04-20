@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>学生就业管理系统</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">学生就业管理系统</h3>
+          <ul class="nav masthead-nav">
+            <li class="active"><a href="/">主页</a></li>
+            <li><a href="/introduce">介绍</a></li>
+            <li><a href="/contact">联系</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <%= yield %>
+
+      <div class="mastfoot">
+        <div class="inner">
+          <p> 欢迎访问 <a href="http://www.ntu.edu.cn/">南通大学</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>
