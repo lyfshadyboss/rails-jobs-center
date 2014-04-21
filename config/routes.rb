@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
 
+  devise_for :admins
+  devise_for :companies
+  devise_for :students
   devise_for :users
+
   root 'home#index'
 
   match '/introduce', to: 'home#introduce', via: 'get'
   match '/contact', to: 'home#contact', via: 'get'
+
+  match '/student', to: 'student#index', via: 'get'
+  match '/admin', to: 'admin#index', via: 'get'
+  match '/company', to: 'company#index', via: 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
