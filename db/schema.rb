@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140421092920) do
+ActiveRecord::Schema.define(version: 20140421130050) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 20140421092920) do
   end
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.integer  "amount"
+    t.text     "description"
+    t.text     "requirement"
+    t.integer  "view_count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "students", force: true do |t|
     t.string   "email",              default: "", null: false
