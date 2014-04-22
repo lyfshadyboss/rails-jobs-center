@@ -2,6 +2,10 @@ Rails.application.routes.draw do
 
   resources :posts
 
+  scope 'student' do
+    resources :resumes, as: 'student_resumes'
+  end
+
   devise_for :admins
   devise_for :companies
   devise_for :students
