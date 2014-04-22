@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_for :admins
   devise_for :companies
   devise_for :students
-  devise_for :users
 
   root 'home#index'
 
