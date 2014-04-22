@@ -6,4 +6,7 @@ class StudentController < ApplicationController
 
   def information
   end
+
+  def commit_for_update
+  end
 end

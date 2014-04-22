@@ -4,21 +4,103 @@
     请验证自己的信息是否正确，如有偏差，修改后提交给管理员审核!
   </div>
 
-  <form class="form-horizontal" role="form">
-    <div class="form-group">
-      <label for="student_info_name" class="col-sm-1 control-label">姓名：</label>
+  <%= form_for current_student,
+               url: {action: 'commit_for_update'},
+               html: {class: 'form-horizontal', role: 'form'} do |f| %>
+      <div class="form-group">
+        <%= label_tag :student_name, "姓名：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+      </div>
 
-      <div class="col-sm-6">
-        <input type="email" class="form-control" id="student_info_name"
-               value=<%= current_student.email %>>
+      <div class="form-group">
+        <%= label_tag :student_gender, "性别：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-1">
+          <%= f.select :gender, options_for_select(gender_collection, current_student.gender),
+                       {}, {class: "form-control"} %>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-1 col-sm-10">
-        <button type="submit" class="btn btn-default">提交</button>
-        <button type="submit" class="btn btn-default">取消</button>
+
+      <div class="form-group">
+        <%= label_tag :student_age, "年龄：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-1">
+          <%= f.text_field :age, class: "form-control", :disabled => true %>
+        </div>
       </div>
-    </div>
-  </form>
+
+      <div class="form-group">
+        <%= label_tag :student_birthday, "出生日期：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.date_select :birthday, {:use_month_names => month_names_zh}, { class: "form-control" } %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_email, "邮箱：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-4">
+          <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_social_id, "身份证：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-4">
+          <%= f.text_field :social_id, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_student_id, "学号：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.text_field :student_id, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_grade, "年级：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.select :grade, options_for_select(grade_collection, current_student.grade),
+                       {}, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_subject, "学院：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.select :subject, options_for_select(subject_collection, current_student.subject),
+                       {}, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_major, "专业：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-2">
+          <%= f.select :major, options_for_select(major_collection, current_student.major),
+                       {}, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_self_description, "自评：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_area :self_description, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_teacher_description, "辅导员评语：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_area :teacher_description, class: "form-control", :disabled => true %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-1 col-sm-10">
+          <button type="submit" class="btn btn-default">提交</button>
+          <button type="reset" class="btn btn-default">取消</button>
+        </div>
+      </div>
+  <% end %>
 </div>
 

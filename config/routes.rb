@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   match '/company', to: 'company#index', via: 'get'
 
   get '/student/information' => 'student#information'
+  patch '/student/commit_for_update' => 'student#commit_for_update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
