@@ -1,3 +1,3 @@
 class Admin < ActiveRecord::Base
-  devise :database_authenticatable
+  devise :database_authenticatable, :registerable
 end

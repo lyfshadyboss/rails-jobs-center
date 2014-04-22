@@ -1,9 +1,9 @@
 <%# add navigation links to this file %>
-<% if user_signed_in? %>
-  <li><%= link_to '登出', destroy_student_session_path, :method=>'delete' %></li>
+<% if company_signed_in? %>
+  <li><%= link_to '登出', destroy_company_session_path, :method=>'delete' %></li>
 <% else %>
-  <li><%= link_to '登录', new_student_session_path %></li>
+  <li><%= link_to '登录', new_company_session_path %></li>
 <% end %>
 <% if user_signed_in? %>
-  <li><%= link_to '公司信息', student_information_path %></li>
+  <li><%= link_to '公司信息', company_information_path %></li>
 <% end %>
