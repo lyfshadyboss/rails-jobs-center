@@ -2,8 +2,8 @@ class CreateInterests < ActiveRecord::Migration
   def change
     create_table :interests do |t|
 
-      t.string :interest_title
-      t.text :interest_detail
+      t.string :title
+      t.text :detail
 
       t.references :resume, index: true
 

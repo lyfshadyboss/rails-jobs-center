@@ -1,3 +1,21 @@
 <div class="form-group">
   <%= label_tag :sample_works, "作品样例：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-8 resume_group">
+    <div class="col-sm-2">
+      <%= f.text_field :title, class: "form-control",
+                       :placeholder => "项目名" %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.text_field :description, class: "form-control",
+                       :placeholder => "描述" %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.text_field :demo_url, class: "form-control",
+                       :placeholder => "演示地址" %>
+    </div>
+
+  </div>
 </div>

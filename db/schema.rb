@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 20140424100702) do
   add_index "glories", ["resume_id"], name: "index_glories_on_resume_id"
 
   create_table "interests", force: true do |t|
-    t.string   "interest_title"
-    t.text     "interest_detail"
+    t.string   "title"
+    t.text     "detail"
     t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 20140424100702) do
   add_index "sample_works", ["resume_id"], name: "index_sample_works_on_resume_id"
 
   create_table "skills", force: true do |t|
-    t.string   "skill_title"
-    t.text     "skill_detail"
+    t.string   "title"
+    t.text     "detail"
     t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"

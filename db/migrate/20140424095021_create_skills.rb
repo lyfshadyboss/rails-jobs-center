@@ -2,8 +2,8 @@ class CreateSkills < ActiveRecord::Migration
   def change
     create_table :skills do |t|
 
-      t.string :skill_title
-      t.text :skill_detail
+      t.string :title
+      t.text :detail
 
       t.references :resume, index: true
 

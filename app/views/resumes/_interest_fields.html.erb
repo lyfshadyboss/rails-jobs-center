@@ -1,3 +1,16 @@
 <div class="form-group">
   <%= label_tag :interests, "兴趣爱好：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-8 resume_group">
+    <div class="col-sm-2">
+      <%= f.text_field :title, class: "form-control",
+                       :placeholder => "兴趣概述" %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.text_field :detail, class: "form-control",
+                       :placeholder => "兴趣详述" %>
+    </div>
+
+  </div>
 </div>

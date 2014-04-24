@@ -1,3 +1,36 @@
 <div class="form-group">
   <%= label_tag :work_experiences, "工作经历：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-8 resume_group">
+    <div class="col-sm-2">
+      <%= f.text_field :start_date, class: "form-control",
+                       :placeholder => "起始日期" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.text_field :end_date, class: "form-control",
+                       :placeholder => "结束日期" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.text_field :company_name, class: "form-control",
+                       :placeholder => "公司名" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.text_field :appointment, class: "form-control",
+                       :placeholder => "职位" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.text_field :duty, class: "form-control",
+                       :placeholder => "职责" %>
+    </div>
+
+    <div class="col-sm-2">
+      <%= f.text_field :description, class: "form-control",
+                       :placeholder => "职责描述" %>
+    </div>
+
+  </div>
 </div>
