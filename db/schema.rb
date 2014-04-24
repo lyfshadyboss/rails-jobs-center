@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140422101856) do
+ActiveRecord::Schema.define(version: 20140424100702) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -31,6 +31,40 @@ ActiveRecord::Schema.define(version: 20140422101856) do
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true
 
+  create_table "educations", force: true do |t|
+    t.string   "school_name"
+    t.string   "degree"
+    t.string   "major"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "educations", ["student_id"], name: "index_educations_on_student_id"
+
+  create_table "glories", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.date     "date"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "glories", ["student_id"], name: "index_glories_on_student_id"
+
+  create_table "interests", force: true do |t|
+    t.string   "interest_title"
+    t.text     "interest_detail"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "interests", ["student_id"], name: "index_interests_on_student_id"
+
   create_table "posts", force: true do |t|
     t.string   "title"
     t.integer  "amount"
@@ -49,6 +83,27 @@ ActiveRecord::Schema.define(version: 20140422101856) do
   end
 
   add_index "resumes", ["student_id"], name: "index_resumes_on_student_id"
+
+  create_table "sample_works", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "demo_url"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sample_works", ["student_id"], name: "index_sample_works_on_student_id"
+
+  create_table "skills", force: true do |t|
+    t.string   "skill_title"
+    t.text     "skill_detail"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "skills", ["student_id"], name: "index_skills_on_student_id"
 
   create_table "students", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -71,5 +126,19 @@ ActiveRecord::Schema.define(version: 20140422101856) do
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
+
+  create_table "work_experiences", force: true do |t|
+    t.string   "company_name"
+    t.string   "appointment"
+    t.string   "duty"
+    t.text     "description"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "student_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "work_experiences", ["student_id"], name: "index_work_experiences_on_student_id"
 
 end
