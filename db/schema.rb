@@ -42,9 +42,13 @@ ActiveRecord::Schema.define(version: 20140422101856) do
   end
 
   create_table "resumes", force: true do |t|
+    t.string   "title"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "resumes", ["student_id"], name: "index_resumes_on_student_id"
 
   create_table "students", force: true do |t|
     t.string   "email",               default: "", null: false

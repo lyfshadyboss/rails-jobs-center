@@ -1,0 +1,12 @@
+<div class="panel panel-info student-panel-info">
+  <div class="panel-heading">新简历</div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([@student, @resumes.build],
+              html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "resumes/form", locals: {form: f} %>
+  <% end %>
+
+</div>
+

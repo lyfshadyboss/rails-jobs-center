@@ -1,0 +1,43 @@
+<div class="panel panel-info student-panel-info">
+  <div class="panel-heading">简历列表</div>
+
+  <div class="panel-body">
+    <%= link_to "创建新简历", new_student_resume_path %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>编号</th>
+        <th>标题</th>
+        <th>创建时间</th>
+        <th>修改时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% index = 0 %>
+      <% @resumes.each do |resume| %>
+          <tr>
+            <td><%= index += 1 %></td>
+            <td>
+              <%= link_to resume.title, student_resume_path(resume) %>
+            </td>
+            <td><%= resume.created_at %></td>
+            <td><%= resume.updated_at %></td>
+            <td>
+              <%= link_to "编辑", edit_student_resume_path(resume) %>
+              <%= link_to "删除", student_resume_path(resume),
+                          method: :delete, data: {confirm: '确定删除吗？'} %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
