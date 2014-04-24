@@ -1,3 +1,3 @@
 class SampleWork < ActiveRecord::Base
-  belongs_to :student
+  belongs_to :resume
 end

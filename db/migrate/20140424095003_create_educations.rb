@@ -8,7 +8,7 @@ class CreateEducations < ActiveRecord::Migration
       t.date :start_date
       t.date :end_date
 
-      t.references :student, index: true
+      t.references :resume, index: true
 
       t.timestamps
     end

@@ -6,7 +6,7 @@ class CreateGlories < ActiveRecord::Migration
       t.text :description
       t.date :date
 
-      t.references :student, index: true
+      t.references :resume, index: true
 
       t.timestamps
     end

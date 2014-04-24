@@ -1,3 +1,11 @@
 // Place all the styles related to the resumes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#resume_add_button{
+  float: right;
+}
+
+.resume_education_group {
+  padding: 0;
+}

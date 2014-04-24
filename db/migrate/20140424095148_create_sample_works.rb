@@ -6,7 +6,7 @@ class CreateSampleWorks < ActiveRecord::Migration
       t.text :description
       t.string :demo_url
 
-      t.references :student, index: true
+      t.references :resume, index: true
 
       t.timestamps
     end

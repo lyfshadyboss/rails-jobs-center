@@ -5,7 +5,7 @@ class CreateInterests < ActiveRecord::Migration
       t.string :interest_title
       t.text :interest_detail
 
-      t.references :student, index: true
+      t.references :resume, index: true
 
       t.timestamps
     end

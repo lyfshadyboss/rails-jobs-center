@@ -37,33 +37,33 @@ ActiveRecord::Schema.define(version: 20140424100702) do
     t.string   "major"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "educations", ["student_id"], name: "index_educations_on_student_id"
+  add_index "educations", ["resume_id"], name: "index_educations_on_resume_id"
 
   create_table "glories", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.date     "date"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "glories", ["student_id"], name: "index_glories_on_student_id"
+  add_index "glories", ["resume_id"], name: "index_glories_on_resume_id"
 
   create_table "interests", force: true do |t|
     t.string   "interest_title"
     t.text     "interest_detail"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "interests", ["student_id"], name: "index_interests_on_student_id"
+  add_index "interests", ["resume_id"], name: "index_interests_on_resume_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -88,22 +88,22 @@ ActiveRecord::Schema.define(version: 20140424100702) do
     t.string   "title"
     t.text     "description"
     t.string   "demo_url"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "sample_works", ["student_id"], name: "index_sample_works_on_student_id"
+  add_index "sample_works", ["resume_id"], name: "index_sample_works_on_resume_id"
 
   create_table "skills", force: true do |t|
     t.string   "skill_title"
     t.text     "skill_detail"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "skills", ["student_id"], name: "index_skills_on_student_id"
+  add_index "skills", ["resume_id"], name: "index_skills_on_resume_id"
 
   create_table "students", force: true do |t|
     t.string   "email",               default: "", null: false
@@ -134,11 +134,11 @@ ActiveRecord::Schema.define(version: 20140424100702) do
     t.text     "description"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "student_id"
+    t.integer  "resume_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "work_experiences", ["student_id"], name: "index_work_experiences_on_student_id"
+  add_index "work_experiences", ["resume_id"], name: "index_work_experiences_on_resume_id"
 
 end

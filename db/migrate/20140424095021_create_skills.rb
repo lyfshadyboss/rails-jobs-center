@@ -5,7 +5,7 @@ class CreateSkills < ActiveRecord::Migration
       t.string :skill_title
       t.text :skill_detail
 
-      t.references :student, index: true
+      t.references :resume, index: true
 
       t.timestamps
     end
