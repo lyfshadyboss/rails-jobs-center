@@ -5,33 +5,29 @@
   </div>
 </div>
 
-<div class="form-group">
-  <%= label_tag :educations, "教育经历：", class: "col-sm-1 control-label" %>
-  <div class="col-sm-8 resume_education_group">
-    <div class="col-sm-2">
-      <%= form.text_field :title, class: "form-control",
-                          :placeholder => "起始日期" %>
-    </div>
-    <div class="col-sm-2">
-      <%= form.text_field :title, class: "form-control",
-                          :placeholder => "结束日期" %>
-    </div>
-    <div class="col-sm-2">
-      <%= form.text_field :title, class: "form-control",
-                          :placeholder => "学校名称" %>
-    </div>
-    <div class="col-sm-2">
-      <%= form.text_field :title, class: "form-control",
-                          :placeholder => "专业" %>
-    </div>
-    <div class="col-sm-2">
-      <%= form.text_field :title, class: "form-control",
-                          :placeholder => "学位" %>
-    </div>
+<%= form.fields_for :educations do |builder| %>
+    <%= render "resumes/education_fields", :f => builder %>
+<% end %>
 
-    <button type="button" id="resume_add_button" class="btn btn-primary glyphicon glyphicon-plus"> 添加教育经历</button>
-  </div>
-</div>
+<%= form.fields_for :glories do |builder| %>
+    <%= render "resumes/glory_fields", :f => builder %>
+<% end %>
+
+<%= form.fields_for :work_experiences do |builder| %>
+    <%= render "resumes/work_experience_fields", :f => builder %>
+<% end %>
+
+<%= form.fields_for :skilles do |builder| %>
+    <%= render "resumes/skill_fields", :f => builder %>
+<% end %>
+
+<%= form.fields_for :sample_works do |builder| %>
+    <%= render "resumes/sample_work_fields", :f => builder %>
+<% end %>
+
+<%= form.fields_for :interests do |builder| %>
+    <%= render "resumes/interest_fields", :f => builder %>
+<% end %>
 
 <div class="form-group">
   <div class="col-sm-offset-1 col-sm-10">

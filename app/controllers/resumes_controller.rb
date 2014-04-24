@@ -7,6 +7,14 @@ class ResumesController < ApplicationController
   end
 
   def new
+    @resume = Resume.new
+
+    @resume.educations.build
+    @resume.glories.build
+    @resume.interests.build
+    @resume.skills.build
+    @resume.sample_works.build
+    @resume.work_experiences.build
   end
 
   def create
