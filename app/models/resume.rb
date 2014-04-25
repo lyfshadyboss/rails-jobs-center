@@ -10,4 +10,6 @@ class Resume < ActiveRecord::Base
 
   accepts_nested_attributes_for :educations, :glories, :interests, :sample_works, :skills, :work_experiences,
                                 :reject_if => :all_blank, :allow_destroy => true
+
+  validates :title, presence: true
 end

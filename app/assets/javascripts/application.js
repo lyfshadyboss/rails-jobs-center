@@ -17,6 +17,11 @@
 //= require bootstrap-datepicker
 //= require_tree .
 
-$(document).ready(function(){
+// http://stackoverflow.com/questions/17381069/rails-jquery-doesnt-work-on-other-pages?answertab=active#tab-top
+$(document).on('page:load', function() {
+    $('.datepicker').datepicker();
+})
+
+$(document).ready(function() {
     $('.datepicker').datepicker();
 })
