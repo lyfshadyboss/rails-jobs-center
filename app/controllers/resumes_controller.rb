@@ -6,6 +6,10 @@ class ResumesController < ApplicationController
   def index
   end
 
+  def show
+    @resume = @resumes.find(params[:id])
+  end
+
   def new
     @resume = Resume.new
     build_sub_attrs

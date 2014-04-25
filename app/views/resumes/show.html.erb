@@ -1,0 +1,83 @@
+<div class="panel panel-info student-panel-info resume-panel">
+
+  <!--  introduce section-->
+  <div id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-1">
+          <h5>关于</h5>
+        </div>
+
+        <div class="col-lg-6"><p><%= @resume.introduce %></p></div>
+      </div>
+    </div>
+  </div>
+
+  <!--  education section-->
+  <div class="container desc">
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1"><h5>教育经历</h5></div>
+      <%= render partial: 'resumes/education', collection: @resume.educations %>
+    </div>
+
+    <br/>
+    <hr/>
+  </div>
+
+  <!--  work experience section-->
+  <div class="container desc">
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1"><h5>工作经历</h5></div>
+      <%= render partial: 'resumes/work_experience', collection: @resume.work_experiences %>
+    </div>
+
+    <br/>
+    <hr/>
+  </div>
+
+  <!--  glory section-->
+  <div class="container desc">
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1"><h5>获奖</h5></div>
+      <%= render partial: 'resumes/glory', collection: @resume.glories %>
+    </div>
+
+    <br/>
+    <hr/>
+  </div>
+
+  <div id="footwrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-1"><h5>联系方式</h5></div>
+        <div class="col-lg-6">
+          <p>
+            <t>邮箱</t>
+            <br/>
+            <%= @student.email %>
+          </p>
+
+          <p>
+            <t>地址</t>
+            <br/>
+            <%= @student.address %>
+          </p>
+
+          <p>
+            <t>电话</t>
+            <br/>
+            <%= @student.telephone %>
+          </p>
+        </div>
+        <div class="col-lg-3">
+          <p>
+            <sm>社交</sm>
+          </p>
+
+          <p>QQ: <%= @student.tencent_qq %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

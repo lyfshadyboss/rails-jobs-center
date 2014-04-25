@@ -1,0 +1,19 @@
+<div class="col-lg-6">
+  <p>
+    <t><%= education.degree %></t>
+    <br/>
+    <%= education.school_name %>
+  </p>
+</div>
+
+<div class="col-lg-3">
+  <p>
+    <sm><%= education.start_date %> ~ <%= education.end_date %></sm>
+    <br/>
+    <% if education.end_date < Date.today %>
+        <imp>
+          <sm>正在就读</sm>
+        </imp>
+    <% end %>
+  </p>
+</div>

@@ -8,8 +8,9 @@ class StudentController < ApplicationController
   end
 
   def commit_for_update
-    student = Student.find_by_email current_student.email
-    result = student.update(student_params)
+    result = current_student.update(student_params)
+
+    redirect_to student_information_path
   end
 
   private

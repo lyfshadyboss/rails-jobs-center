@@ -25,14 +25,28 @@
       <div class="form-group">
         <%= label_tag :student_age, "年龄：", class: "col-sm-1 control-label" %>
         <div class="col-sm-1">
-          <%= f.text_field :age, class: "form-control", :disabled => true %>
+          <%= f.text_field :age, class: "form-control" %>
         </div>
       </div>
 
       <div class="form-group">
         <%= label_tag :student_birthday, "出生日期：", class: "col-sm-1 control-label" %>
         <div class="col-sm-2">
-          <%= f.date_select :birthday, {:use_month_names => month_names_zh}, {class: "form-control"} %>
+          <%= f.text_field :birthday, {class: "form-control datepicker"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_address, "地址：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-6">
+          <%= f.text_field :address, {class: "form-control"} %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_telephone, "联系方式：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-3">
+          <%= f.text_field :telephone, {class: "form-control"} %>
         </div>
       </div>
 
@@ -40,6 +54,13 @@
         <%= label_tag :student_email, "邮箱：", class: "col-sm-1 control-label" %>
         <div class="col-sm-4">
           <%= f.text_field :email, class: "form-control" %>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :student_tencent_qq, "QQ号：", class: "col-sm-1 control-label" %>
+        <div class="col-sm-4">
+          <%= f.text_field :tencent_qq, class: "form-control" %>
         </div>
       </div>
 

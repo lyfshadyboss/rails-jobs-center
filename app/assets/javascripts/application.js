@@ -14,14 +14,33 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN
 //= require_tree .
 
 // http://stackoverflow.com/questions/17381069/rails-jquery-doesnt-work-on-other-pages?answertab=active#tab-top
 $(document).on('page:load', function() {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format : "yyyy-mm-dd"
+    });
+
+    register_datepicker_events();
 })
 
 $(document).ready(function() {
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        format : "yyyy-mm-dd"
+    });
+
+    register_datepicker_events();
 })
+
+function register_datepicker_events() {
+    $('.datepicker').on('hide', function (e) {
+
+        if (e.currentTarget.id == "student_birthday") {
+            date = new Date()
+            $('#student_age').attr('value', date.getFullYear() - e.date.getFullYear())
+        }
+    })
+}

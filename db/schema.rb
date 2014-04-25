@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20140424100702) do
 
   create_table "resumes", force: true do |t|
     t.string   "title"
+    t.text     "introduce"
     t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -108,21 +109,23 @@ ActiveRecord::Schema.define(version: 20140424100702) do
   create_table "students", force: true do |t|
     t.string   "email",               default: "", null: false
     t.string   "encrypted_password",  default: "", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.date     "start_date"
     t.string   "name"
     t.integer  "gender",              default: 0
-    t.integer  "age",                 default: 20
+    t.integer  "age"
     t.string   "social_id"
     t.date     "birthday"
-    t.integer  "group",               default: 0
     t.string   "student_id"
+    t.integer  "group",               default: 0
     t.integer  "grade",               default: 0
     t.integer  "subject",             default: 0
     t.integer  "major",               default: 0
+    t.string   "address"
+    t.string   "telephone"
+    t.string   "tencent_qq"
     t.text     "self_description"
     t.text     "teacher_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true

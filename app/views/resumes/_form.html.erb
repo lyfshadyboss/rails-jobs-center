@@ -5,6 +5,13 @@
   </div>
 </div>
 
+<div class="form-group">
+  <%= label_tag :resume_introduce, "介绍：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-8">
+    <%= form.text_area :introduce, class: "form-control" %>
+  </div>
+</div>
+
 <%= form.fields_for :educations do |builder| %>
     <%= render "resumes/education_fields", :f => builder %>
 <% end %>
