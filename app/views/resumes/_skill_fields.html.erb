@@ -1,6 +1,5 @@
 <div class="form-group">
-  <%= label_tag :skills, "技能：", class: "col-sm-1 control-label" %>
-
+  <div class="col-sm-1 control-label"></div>
   <div class="col-sm-8 resume-group">
     <div class="col-sm-2">
       <%= f.text_field :title, class: "form-control",
@@ -11,6 +10,13 @@
       <%= f.text_field :detail, class: "form-control",
                        :placeholder => "技能描述" %>
     </div>
+  </div>
 
+  <div class="col-sm-1">
+    <% if f.object.new_record? %>
+        <%= link_to '删除', '', :remote => false, class: 'destroy-nested-form btn-danger form-control' %>
+    <% else %>
+        <%= link_to '删除', '', :remote => true, :method => :delete, class: 'destroy-nested-form btn-danger form-control' %>
+    <% end %>
   </div>
 </div>

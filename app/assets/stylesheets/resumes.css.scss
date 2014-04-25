@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #resume-add-button{
-  float: right;
+//  float: right;
 }
 
 .resume-group {
@@ -12,4 +12,8 @@
 
 .resume-panel {
   background-color: #f2f2f2
+}
+
+textarea {
+  min-height: 100px;
 }

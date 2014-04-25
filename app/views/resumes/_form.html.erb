@@ -12,25 +12,72 @@
   </div>
 </div>
 
+<div class="form-group">
+  <%= label_tag :educations, "教育经历：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加教育经历</button>
+  </div>
+</div>
+
 <%= form.fields_for :educations do |builder| %>
     <%= render "resumes/education_fields", :f => builder %>
 <% end %>
+
+
+<div class="form-group">
+  <%= label_tag :glories, "获奖情况：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加奖项</button>
+  </div>
+</div>
 
 <%= form.fields_for :glories do |builder| %>
     <%= render "resumes/glory_fields", :f => builder %>
 <% end %>
 
+
+<div class="form-group">
+  <%= label_tag :work_experiences, "工作经历：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加工作经历</button>
+  </div>
+</div>
+
 <%= form.fields_for :work_experiences do |builder| %>
     <%= render "resumes/work_experience_fields", :f => builder %>
 <% end %>
+
+<div class="form-group">
+  <%= label_tag :skills, "技能：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加技能</button>
+  </div>
+</div>
 
 <%= form.fields_for :skills do |builder| %>
     <%= render "resumes/skill_fields", :f => builder %>
 <% end %>
 
+<div class="form-group">
+  <%= label_tag :sample_works, "作品样例：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加作品项目</button>
+  </div>
+</div>
+
 <%= form.fields_for :sample_works do |builder| %>
     <%= render "resumes/sample_work_fields", :f => builder %>
 <% end %>
+
+<div class="form-group">
+  <%= label_tag :interests, "兴趣爱好：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加兴趣</button>
+  </div>
+</div>
 
 <%= form.fields_for :interests do |builder| %>
     <%= render "resumes/interest_fields", :f => builder %>

@@ -1,5 +1,5 @@
 <div class="form-group">
-  <%= label_tag :educations, "教育经历：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-1 control-label"></div>
   <div class="col-sm-8 resume-group">
     <div class="col-sm-2">
       <%= f.text_field :start_date, class: "form-control datepicker",
@@ -21,7 +21,13 @@
       <%= f.text_field :degree, class: "form-control",
                        :placeholder => "学位" %>
     </div>
+  </div>
 
-    <button type="button" id="resume-add-button" class="btn btn-primary glyphicon glyphicon-plus"> 添加教育经历</button>
+  <div class="col-sm-1">
+    <% if f.object.new_record? %>
+        <%= link_to '删除', '', :remote => false, class: 'destroy-nested-form btn-danger form-control' %>
+    <% else %>
+        <%= link_to '删除', '', :remote => true, :method => :delete, class: 'destroy-nested-form btn-danger form-control' %>
+    <% end %>
   </div>
 </div>

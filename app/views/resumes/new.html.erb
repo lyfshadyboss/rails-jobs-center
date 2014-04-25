@@ -4,7 +4,7 @@
   <div class="panel-body"></div>
 
   <%= form_for([@student, @resume],
-              html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
       <%= render partial: "resumes/form", locals: {form: f} %>
   <% end %>
 

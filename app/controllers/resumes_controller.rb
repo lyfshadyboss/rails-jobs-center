@@ -26,6 +26,8 @@ class ResumesController < ApplicationController
 
   def edit
     @resume = @resumes.find(params[:id])
+
+    build_sub_attrs
   end
 
   def update

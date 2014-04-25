@@ -1,6 +1,5 @@
 <div class="form-group">
-  <%= label_tag :glories, "获奖情况：", class: "col-sm-1 control-label" %>
-
+  <div class="col-sm-1 control-label"></div>
   <div class="col-sm-8 resume-group">
     <div class="col-sm-2">
       <%= f.text_field :date, class: "form-control  datepicker",
@@ -12,11 +11,18 @@
                        :placeholder => "奖项名称" %>
     </div>
 
-    <div class="col-sm-4">
-      <%= f.text_field :description, class: "form-control",
-                       :placeholder => "描述" %>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: "form-control",
+                      :placeholder => "描述" %>
     </div>
+  </div>
 
+  <div class="col-sm-1">
+    <% if f.object.new_record? %>
+        <%= link_to '删除', '', :remote => false, class: 'destroy-nested-form btn-danger form-control' %>
+    <% else %>
+        <%= link_to '删除', '', :remote => true, :method => :delete, class: 'destroy-nested-form btn-danger form-control' %>
+    <% end %>
   </div>
 
 </div>
