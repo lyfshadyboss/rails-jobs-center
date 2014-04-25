@@ -15,6 +15,7 @@ class ResumesController < ApplicationController
     @resume.skills.build
     @resume.sample_works.build
     @resume.work_experiences.build
+
   end
 
   def create
