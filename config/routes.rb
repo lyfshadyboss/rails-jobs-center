@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :posts
 
   scope 'student' do
-    resources :resumes, as: 'student_resumes'
+    resources :resumes, as: 'student_resumes' do
+      resources :educations, :glories, :interests, :sample_works, :skills, :work_experiences, only: :destroy
+    end
   end
 
   devise_for :admins
