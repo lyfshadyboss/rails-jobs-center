@@ -12,8 +12,16 @@ jQuery ($) ->
 
     field = $(field_class_name).last().clone()
 
-    $(destroy_field_class_name).click (e) ->
+    # don't allow destroy when field number is less than one
+    if $(field_class_name).length <= 1
+      $(destroy_field_class_name).fadeOut()
+
+    on_destroy = (e) ->
       $(this).closest(field_class_name).slideUp().remove()
+      if $(field_class_name).length <= 1
+        $(destroy_field_class_name).fadeOut()
+
+    $(destroy_field_class_name).click(on_destroy)
 
     $(add_field_class_name).click (e) ->
       e.preventDefault()
@@ -37,8 +45,10 @@ jQuery ($) ->
         $(this).attr 'name', new_name
 
       $(new_field).insertAfter(last_field)
-      new_field.find(destroy_field_class_name).click (e) ->
-        $(this).closest(field_class_name).slideUp().remove()
+      new_field.find(destroy_field_class_name).click(on_destroy)
+
+      if $(field_class_name).length > 1
+        $(destroy_field_class_name).fadeIn()
 
       window.init_date_picker()
 
