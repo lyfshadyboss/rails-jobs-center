@@ -1,19 +1,27 @@
-<div class="col-lg-6">
-  <p>
-    <t><%= glory.title %></t>
-    <br/>
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if glory_counter == 0 %>
+        <h5>获奖</h5>
+    <% end %>
+  </div>
 
-  </p>
+  <div class="col-lg-6">
+    <p>
+      <t><%= glory.title %></t>
+      <br/>
 
-  <p>
-    <more>
-      <%= glory.description %>
-    </more>
-  </p>
-</div>
+    </p>
 
-<div class="col-lg-3">
-  <p>
-    <sm><%= glory.start_date %></sm>
-  </p>
+    <p>
+      <more>
+        <%= glory.description %>
+      </more>
+    </p>
+  </div>
+
+  <div class="col-lg-3">
+    <p>
+      <sm><%= glory.date %></sm>
+    </p>
+  </div>
 </div>

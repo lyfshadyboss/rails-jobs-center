@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if sample_work_counter == 0 %>
+        <h5>作品案例</h5>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6">
+    <p>
+      <t><%= sample_work.title %></t>
+      <br/>
+      <%= sample_work.description %>
+    </p>
+  </div>
+
+  <div class="col-lg-3">
+    <% if not sample_work.demo_url.nil? %>
+        <p>
+          <a href=<%= sample_work.demo_url %>>演示地址</a>
+        </p>
+    <% end %>
+  </div>
+</div>

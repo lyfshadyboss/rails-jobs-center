@@ -15,35 +15,39 @@
 
   <!--  education section-->
   <div class="container desc">
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-1"><h5>教育经历</h5></div>
-      <%= render partial: 'resumes/education', collection: @resume.educations %>
-    </div>
-
-    <br/>
+    <%= render partial: 'resumes/education', collection: @resume.educations %>
     <hr/>
   </div>
 
   <!--  work experience section-->
   <div class="container desc">
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-1"><h5>工作经历</h5></div>
-      <%= render partial: 'resumes/work_experience', collection: @resume.work_experiences %>
-    </div>
-
-    <br/>
+    <%= render partial: 'resumes/work_experience', collection: @resume.work_experiences %>
     <hr/>
   </div>
 
   <!--  glory section-->
   <div class="container desc">
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-1"><h5>获奖</h5></div>
-      <%= render partial: 'resumes/glory', collection: @resume.glories %>
-    </div>
+    <%= render partial: 'resumes/glory', collection: @resume.glories %>
 
-    <br/>
     <hr/>
+  </div>
+
+  <!--  skill section-->
+  <div class="container desc">
+    <%= render partial: 'resumes/skill', collection: @resume.skills %>
+
+    <hr/>
+  </div>
+
+  <!--  sample work section-->
+  <div class="container desc">
+    <%= render partial: 'resumes/sample_work', collection: @resume.sample_works %>
+    <hr/>
+  </div>
+
+  <!--  interest section-->
+  <div class="container desc">
+    <%= render partial: 'resumes/interest', collection: @resume.interests %>
   </div>
 
   <div id="footwrap">

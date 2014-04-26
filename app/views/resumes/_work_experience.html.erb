@@ -1,18 +1,26 @@
-<div class="col-lg-6">
-  <p>
-    <t><%= work_experience.appointment %></t>
-    <br/>
-    <%= work_experience.company %>
-  </p>
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if work_experience_counter == 0 %>
+        <h5>工作经历</h5>
+    <% end %>
+  </div>
 
-  <p>
-    <more><%= work_experience.description %></more>
-  </p>
-</div>
+  <div class="col-lg-6">
+    <p>
+      <t><%= work_experience.appointment %></t>
+      <br/>
+      <%= work_experience.company_name %>
+    </p>
 
-<div class="col-lg-3">
-  <p>
-    <sm><%= work_experience.start_date %> ~ <%= work_experience.end_date %></sm>
-    <br/>
-  </p>
+    <p>
+      <more><%= work_experience.description %></more>
+    </p>
+  </div>
+
+  <div class="col-lg-3">
+    <p>
+      <sm><%= work_experience.start_date %> ~ <%= work_experience.end_date %></sm>
+      <br/>
+    </p>
+  </div>
 </div>

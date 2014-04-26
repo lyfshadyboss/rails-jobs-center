@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if skill_counter == 0 %>
+        <h5>技能</h5>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6">
+    <p>
+      <t class="glyphicon glyphicon-ok">  <%= skill.title %></t>
+      <br/>
+      <%= skill.detail %>
+    </p>
+  </div>
+</div>

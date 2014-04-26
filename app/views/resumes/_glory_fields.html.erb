@@ -1,4 +1,4 @@
-<div class="form-group">
+<div class="form-group nested-glory-field">
   <div class="col-sm-1 control-label"></div>
   <div class="col-sm-8 resume-group">
     <div class="col-sm-2">
@@ -19,9 +19,10 @@
 
   <div class="col-sm-1">
     <% if f.object.new_record? %>
-        <%= link_to '删除', '', :remote => false, class: 'destroy-nested-form btn-danger form-control' %>
+        <button type="button" class='destroy-nested-form btn-danger form-control destroy-nested-glory-field'>删除</button>
     <% else %>
-        <%= link_to '删除', student_resume_glory_path(@resume, f.object), :remote => true, :method => :delete, class: 'destroy-nested-form btn-danger form-control' %>
+        <%= link_to '删除', student_resume_glory_path(@resume, f.object), :remote => true, :method => :delete,
+                    class: 'destroy-nested-form btn-danger form-control destroy-nested-glory-field' %>
     <% end %>
   </div>
 
