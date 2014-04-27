@@ -7,3 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Admin.create(:email => "admin@ntu.cn", :password => '11111111', :password_confirmation => "11111111")
+
+5.times do |i|
+  CompanyType.create(name: "Type #{i + 1}")
+end
+
+5.times do |i|
+  CompanyScale.create(name: "Scale #{i + 1}")
+end

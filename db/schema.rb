@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424100702) do
+ActiveRecord::Schema.define(version: 20140427042125) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -25,11 +25,28 @@ ActiveRecord::Schema.define(version: 20140424100702) do
   create_table "companies", force: true do |t|
     t.string   "email",              default: "", null: false
     t.string   "encrypted_password", default: "", null: false
+    t.string   "name"
+    t.text     "introduce"
+    t.integer  "company_type",       default: 0
+    t.integer  "company_scale",      default: 0
+    t.string   "site"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true
+
+  create_table "company_scales", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "company_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "educations", force: true do |t|
     t.string   "school_name"

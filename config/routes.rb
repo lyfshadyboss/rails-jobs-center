@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :posts
+  scope 'company' do
+    resources :posts, as: 'company_posts'
+  end
 
   scope 'student' do
     resources :resumes, as: 'student_resumes' do
@@ -23,6 +25,9 @@ Rails.application.routes.draw do
 
   get '/student/information' => 'student#information'
   patch '/student/commit_for_update' => 'student#commit_for_update'
+
+  get '/company/information' => 'company#information'
+  patch '/company/commit_for_update' => 'company#commit_for_update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

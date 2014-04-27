@@ -4,6 +4,7 @@
 <% else %>
   <li><%= link_to '登录', new_company_session_path %></li>
 <% end %>
-<% if user_signed_in? %>
+<% if company_signed_in? %>
+  <li><%= link_to '我的招聘', company_posts_path %></li>
   <li><%= link_to '公司信息', company_information_path %></li>
 <% end %>
