@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427110900) do
+ActiveRecord::Schema.define(version: 20140428084350) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 20140427110900) do
 
   add_index "educations", ["resume_id"], name: "index_educations_on_resume_id"
 
+  create_table "genders", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "glories", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -74,6 +80,12 @@ ActiveRecord::Schema.define(version: 20140427110900) do
 
   add_index "glories", ["resume_id"], name: "index_glories_on_resume_id"
 
+  create_table "grades", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "interests", force: true do |t|
     t.string   "title"
     t.text     "detail"
@@ -83,6 +95,13 @@ ActiveRecord::Schema.define(version: 20140427110900) do
   end
 
   add_index "interests", ["resume_id"], name: "index_interests_on_resume_id"
+
+  create_table "majors", force: true do |t|
+    t.string   "name"
+    t.text     "introduce"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "post_sub_types", force: true do |t|
     t.string   "name"
@@ -175,6 +194,13 @@ ActiveRecord::Schema.define(version: 20140427110900) do
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
+
+  create_table "subjects", force: true do |t|
+    t.string   "name"
+    t.text     "introduce"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "work_experiences", force: true do |t|
     t.string   "company_name"

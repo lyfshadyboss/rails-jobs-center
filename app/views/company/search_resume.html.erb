@@ -4,6 +4,32 @@
   <div class="panel-body">
   </div>
 
+  <%= form_tag("/company/search_resume", method: "get") do %>
+      <div class="row">
+        <div class="col-lg-3">
+          <strong class="search_label">学院：</strong>
+          <%= select_tag "subject", options_from_collection_for_select(Subject.all, :id, :name, @subject),
+                         :class => 'form-control', :include_blank => true %>
+        </div>
+
+        <div class="col-lg-3">
+          <strong class="search_label">专业：</strong>
+          <%= select_tag "major", options_from_collection_for_select(Major.all, :id, :name, @major),
+                         :class => 'form-control', :include_blank => true %>
+        </div>
+
+        <div class="col-lg-3">
+          <strong class="search_label">关键词：</strong>
+          <%= search_field_tag "key_words", @key_words, {class: 'form-control'} %>
+        </div>
+
+        <div class="col-lg-1">
+          <span style="display:block; visibility:hidden;">search</span>
+          <button class="btn btn-default form-control">搜索</button>
+        </div>
+      </div>
+  <% end %>
+
   <div class="table-responsive">
     <table class="table table-striped">
       <thead>

@@ -5,7 +5,32 @@ class CompanyController < ApplicationController
   end
 
   def search_resume
+    @key_words = get_search_words(:key_words)
+    @subject = get_search_words(:subject)
+    @major = get_search_words(:major)
+
     @resumes = Resume.all
+    @resumes = @resumes.where("title LIKE ?", "%#{params[:key_words]}%") if @key_words
+
+    @filter = []
+
+    if @subject
+      @resumes.each { |resume|
+        if resume.student.subject != @subject.to_i
+          @filter << resume
+        end
+      }
+    end
+
+    if @major
+      @resumes.each { |resume|
+        if resume.student.major != @major.to_i
+          @filter << resume
+        end
+      }
+    end
+
+    @resumes -= @filter
   end
 
   def browse_resume
@@ -27,5 +52,15 @@ class CompanyController < ApplicationController
 
   def company_params
     params.require(:company).permit!
+  end
+
+  def get_search_words(key)
+    value = params[key]
+
+    if !value.nil?
+      return nil if value.empty?
+    end
+
+    return value
   end
 end

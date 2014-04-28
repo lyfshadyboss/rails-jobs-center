@@ -8,10 +8,10 @@
 
 # Admin.create(:email => "admin@ntu.cn", :password => '11111111', :password_confirmation => "11111111")
 
-5.times do |i|
-  CompanyType.create(name: "Type #{i + 1}")
-end
+Gender.create(:name => '男')
+Gender.create(:name => '女')
 
-5.times do |i|
-  CompanyScale.create(name: "Scale #{i + 1}")
-end
+Grade.create(:name => '大一')
+Grade.create(:name => '大二')
+Grade.create(:name => '大三')
+Grade.create(:name => '大四')
