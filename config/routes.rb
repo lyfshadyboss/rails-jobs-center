@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   get '/company/information' => 'company#information'
   get '/company/search_resume' => 'company#search_resume'
+  get '/company/browse_resume/:id' => 'company#browse_resume'
   patch '/company/commit_for_update' => 'company#commit_for_update'
 
   # The priority is based upon order of creation: first created -> highest priority.

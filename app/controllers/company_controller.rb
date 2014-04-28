@@ -8,6 +8,11 @@ class CompanyController < ApplicationController
     @resumes = Resume.all
   end
 
+  def browse_resume
+    @resume = Resume.find(params[:id])
+    @student = @resume.student
+  end
+
   def information
   end
 
