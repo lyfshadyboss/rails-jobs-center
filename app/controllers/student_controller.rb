@@ -7,6 +7,15 @@ class StudentController < ApplicationController
   def information
   end
 
+  def search_post
+    @posts = Post.all
+  end
+
+  def browse_post
+    @post = Post.find(params[:id])
+    @company = @post.company
+  end
+
   def commit_for_update
     result = current_student.update(student_params)
 

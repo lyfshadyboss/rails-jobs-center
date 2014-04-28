@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   match '/company', to: 'company#index', via: 'get'
 
   get '/student/information' => 'student#information'
+  get '/student/search_post' => 'student#search_post'
+  get '/student/browse_post/:id' => 'student#browse_post'
   patch '/student/commit_for_update' => 'student#commit_for_update'
 
   get '/company/information' => 'company#information'
