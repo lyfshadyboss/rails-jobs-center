@@ -4,6 +4,10 @@ class CompanyController < ApplicationController
   def index
   end
 
+  def search_resume
+    @resumes = Resume.all
+  end
+
   def information
   end
 

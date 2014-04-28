@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   patch '/student/commit_for_update' => 'student#commit_for_update'
 
   get '/company/information' => 'company#information'
+  get '/company/search_resume' => 'company#search_resume'
   patch '/company/commit_for_update' => 'company#commit_for_update'
 
   # The priority is based upon order of creation: first created -> highest priority.
