@@ -7,8 +7,9 @@ class Resume < ActiveRecord::Base
   has_many :sample_works, dependent: :destroy
   has_many :skills, dependent: :destroy
   has_many :work_experiences, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
-  accepts_nested_attributes_for :educations, :glories, :interests, :sample_works, :skills, :work_experiences,
+  accepts_nested_attributes_for :comments, :educations, :glories, :interests, :sample_works, :skills, :work_experiences,
                                 :reject_if => :all_blank, :allow_destroy => true
 
   validates :title, presence: true

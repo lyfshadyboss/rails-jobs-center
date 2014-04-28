@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428084350) do
+ActiveRecord::Schema.define(version: 20140428120616) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -21,6 +21,19 @@ ActiveRecord::Schema.define(version: 20140428084350) do
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+
+  create_table "comments", force: true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "resume_id"
+    t.integer  "post_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
+  add_index "comments", ["resume_id"], name: "index_comments_on_resume_id"
 
   create_table "companies", force: true do |t|
     t.string   "email",              default: "", null: false

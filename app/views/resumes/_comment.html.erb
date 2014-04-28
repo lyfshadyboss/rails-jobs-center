@@ -1,0 +1,21 @@
+<div class="comment-box">
+  <h4>评论列表</h4>
+
+  <div class="comment-list">
+    <div class="container">
+      <% @resume.comments.each do |comment| %>
+          <div class="row">
+            <div class="col-lg-1 comment-profile"><%= image_tag "profile.jpg" %></div>
+            <div class="col-lg-8">
+              <h4><%= comment.title %></h4>
+              <p><%= comment.content %></p>
+              <div>
+                <span><%= comment.created_at %></span>
+                <span><%= link_to '回复', '#' %></span>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

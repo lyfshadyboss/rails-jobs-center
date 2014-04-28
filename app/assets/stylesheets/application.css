@@ -19,3 +19,43 @@
     width: 100%;
     text-align: center;
 }
+
+.comment-box {
+    padding: 30px;
+}
+
+.comment-list {
+    border: 2px solid #2cde97;
+    margin-top: 40px;
+    border-radius: 5px;
+}
+
+.comment-list:before {
+    content: " ";
+    display: block;
+    top: -50px;
+    left: 15px;
+    border: solid transparent;
+    position: relative;
+    width: 0px;
+    height: 0px;
+    border-width: 25px;
+    border-bottom-color: #2cde97;
+}
+
+.comment-list p {
+    color: black;
+    margin-bottom: 10px;
+}
+
+.comment-list .row {
+    margin-bottom: 20px;
+}
+
+.comment-profile {
+    margin-top: 10px;
+}
+
+.comment-list span a {
+    margin-left: 10px;
+}
