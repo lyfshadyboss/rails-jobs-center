@@ -1,35 +1,38 @@
 <div class="panel panel-info student-panel-info">
   <div class="panel-heading">所有职位</div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-lg-2">
-        <strong class="search_label">行业：</strong>
-        <%= select_tag "post_type", options_from_collection_for_select(PostType.all, :id, :name),
-                       :class => 'form-control' %>
-      </div>
-
-      <div class="col-lg-2">
-        <strong class="search_label">分类：</strong>
-        <%= select_tag "post_sub_type", options_from_collection_for_select(PostSubType.all, :id, :name),
-                       :class => 'form-control' %>
-      </div>
-
-      <div class="col-lg-3">
-        <strong class="search_label">公司名：</strong>
-        <%= search_field_tag "company_name", nil, {class: 'form-control'} %>
-      </div>
-
-      <div class="col-lg-3">
-        <strong class="search_label">职位：</strong>
-        <%= search_field_tag "post_title", nil, {class: 'form-control'} %>
-      </div>
-
-      <div class="col-lg-1">
-        <span style="display:block; visibility:hidden;">search</span>
-        <button class="form-control">搜索</button>
-      </div>
-    </div>
   </div>
+
+  <%= form_tag("/student/search_post", method: "get") do %>
+      <div class="row">
+        <div class="col-lg-2">
+          <strong class="search_label">行业：</strong>
+          <%= select_tag "post_type", options_from_collection_for_select(PostType.all, :id, :name, @company_type),
+                         :class => 'form-control' %>
+        </div>
+
+        <div class="col-lg-2">
+          <strong class="search_label">分类：</strong>
+          <%= select_tag "post_sub_type", options_from_collection_for_select(PostSubType.all, :id, :name, @company_sub_type),
+                         :class => 'form-control' %>
+        </div>
+
+        <div class="col-lg-3">
+          <strong class="search_label">公司名：</strong>
+          <%= search_field_tag "company_name", @company_name, {class: 'form-control'} %>
+        </div>
+
+        <div class="col-lg-3">
+          <strong class="search_label">职位：</strong>
+          <%= search_field_tag "post_title", @post_title, {class: 'form-control'} %>
+        </div>
+
+        <div class="col-lg-1">
+          <span style="display:block; visibility:hidden;">search</span>
+          <button class="form-control">搜索</button>
+        </div>
+      </div>
+  <% end %>
 
   <div class="table-responsive">
     <table class="table table-striped">

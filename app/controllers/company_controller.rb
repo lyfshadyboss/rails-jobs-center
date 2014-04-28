@@ -10,7 +10,7 @@ class CompanyController < ApplicationController
     @major = get_search_words(:major)
 
     @resumes = Resume.all
-    @resumes = @resumes.where("title LIKE ?", "%#{params[:key_words]}%") if @key_words
+    @resumes = @resumes.where("title LIKE ?", "%#{@key_words}%") if @key_words
 
     @filter = []
 
