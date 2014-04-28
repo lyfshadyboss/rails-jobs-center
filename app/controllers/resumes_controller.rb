@@ -4,6 +4,7 @@ class ResumesController < ApplicationController
   layout 'student'
 
   def index
+    @resumes = @resumes.order("updated_at DESC").paginate(:page => params[:page])
   end
 
   def show

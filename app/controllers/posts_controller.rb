@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   layout 'company'
 
   def index
+    @posts = @posts.order("updated_at DESC").paginate(:page => params[:page])
   end
 
   def show

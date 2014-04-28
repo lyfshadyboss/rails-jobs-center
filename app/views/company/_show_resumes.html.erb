@@ -1,0 +1,27 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>编号</th>
+      <th>作者</th>
+      <th>标题</th>
+      <th>日期</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% index = 0 %>
+    <% @resumes.each do |resume| %>
+        <tr>
+          <td><%= index += 1 %></td>
+          <td><%= resume.student.name %></td>
+          <td>
+            <%= link_to resume.title, company_browse_resume_path(resume) %>
+          </td>
+          <td><%= resume.updated_at %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

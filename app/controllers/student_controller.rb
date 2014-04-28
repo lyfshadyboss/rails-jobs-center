@@ -2,7 +2,7 @@ class StudentController < ApplicationController
   before_action :authenticate_student!
 
   def index
-    @posts = Post.last(10)
+    @posts = Post.order("updated_at DESC").last(10)
   end
 
   def information
@@ -14,7 +14,7 @@ class StudentController < ApplicationController
     @post_sub_type = get_search_words(:post_sub_type)
     @company_name = get_search_words(:company_name)
 
-    @posts = Post.all
+    @posts = Post.order("updated_at DESC").all
     @posts = @posts.where("title LIKE ?", "%#{@post_title}%") if @post_title
     @posts = @posts.where("post_type = #{@post_type.to_i}") if @post_type
     @posts = @posts.where("post_sub_type = #{@post_sub_type.to_i}") if @post_sub_type
@@ -30,6 +30,7 @@ class StudentController < ApplicationController
     end
 
     @posts -= @filter
+    @posts = @posts.paginate(:page => params[:page])
   end
 
   def browse_post

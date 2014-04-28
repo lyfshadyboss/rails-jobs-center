@@ -2,6 +2,7 @@ class CompanyController < ApplicationController
   before_action :authenticate_company!
 
   def index
+    @resumes = Resume.order("updated_at DESC").last(10)
   end
 
   def search_resume
@@ -9,7 +10,7 @@ class CompanyController < ApplicationController
     @subject = get_search_words(:subject)
     @major = get_search_words(:major)
 
-    @resumes = Resume.all
+    @resumes = Resume.order("updated_at DESC").all
     @resumes = @resumes.where("title LIKE ?", "%#{@key_words}%") if @key_words
 
     @filter = []
@@ -31,6 +32,7 @@ class CompanyController < ApplicationController
     end
 
     @resumes -= @filter
+    @resumes = @resumes.paginate(:page => params[:page])
   end
 
   def browse_resume
