@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140427042125) do
+ActiveRecord::Schema.define(version: 20140427110900) do
 
   create_table "admins", force: true do |t|
     t.string   "email",              default: "", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20140427042125) do
   create_table "companies", force: true do |t|
     t.string   "email",              default: "", null: false
     t.string   "encrypted_password", default: "", null: false
+    t.string   "address"
+    t.string   "telephone"
     t.string   "name"
     t.text     "introduce"
     t.integer  "company_type",       default: 0
@@ -82,15 +84,42 @@ ActiveRecord::Schema.define(version: 20140427042125) do
 
   add_index "interests", ["resume_id"], name: "index_interests_on_resume_id"
 
-  create_table "posts", force: true do |t|
-    t.string   "title"
-    t.integer  "amount"
-    t.text     "description"
-    t.text     "requirement"
-    t.integer  "view_count"
+  create_table "post_sub_types", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "post_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "posts", force: true do |t|
+    t.string   "title"
+    t.integer  "post_type"
+    t.integer  "post_sub_type"
+    t.integer  "amount"
+    t.text     "description"
+    t.integer  "salary"
+    t.integer  "view_count"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["company_id"], name: "index_posts_on_company_id"
+
+  create_table "requirements", force: true do |t|
+    t.string   "title"
+    t.string   "detail"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requirements", ["post_id"], name: "index_requirements_on_post_id"
 
   create_table "resumes", force: true do |t|
     t.string   "title"

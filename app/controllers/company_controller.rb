@@ -10,7 +10,8 @@ class CompanyController < ApplicationController
   def commit_for_update
     result = current_company.update(company_params)
 
-    redirect_to company_information_path
+    redirect_to company_information_path,
+                notice: result == true ? "更新成功！" : "更新失败！"
   end
 
   private

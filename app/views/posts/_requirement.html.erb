@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-2 col-lg-offset-1">
+    <% if requirement_counter == 0 %>
+        <h5>需求</h5>
+    <% end %>
+  </div>
+
+  <div class="col-lg-6">
+    <p>
+      <t><%= requirement.title %></t>
+      <br/>
+      <%= requirement.detail %>
+    </p>
+  </div>
+
+</div>

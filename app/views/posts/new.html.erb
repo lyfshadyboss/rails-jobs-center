@@ -1,5 +1,12 @@
-<h1>New post</h1>
+<div class="panel panel-info company-panel-info">
+  <div class="panel-heading">新职位</div>
 
-<%= render 'form' %>
+  <div class="panel-body"></div>
 
-<%= link_to 'Back', posts_path %>
+  <%= form_for([@company, @post],
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "posts/form", locals: {form: f} %>
+  <% end %>
+
+</div>
+

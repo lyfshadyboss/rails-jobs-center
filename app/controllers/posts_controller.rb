@@ -1,66 +1,71 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_variables
 
   layout 'company'
 
-  # GET /posts
   def index
-    @posts = Post.all
   end
 
-  # GET /posts/1
   def show
+    @post = @posts.find(params[:id])
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
+    build_sub_attrs
   end
 
-  # GET /posts/1/edit
   def edit
+    @post = @posts.find(params[:id])
+    build_sub_attrs
   end
 
-  # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = @posts.create(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to company_post_path(@post), notice: '创建成功！' }
       else
-        format.html { render :new }
+        format.html { render :new, notice: '创建失败！' }
       end
     end
   end
 
-  # PATCH/PUT /posts/1
   def update
+    @post = @posts.find(params[:id])
+
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to company_post_path(@post), notice: '更新成功！' }
       else
-        format.html { render :edit }
+        format.html { render :edit, notice: '更新失败！' }
       end
     end
   end
 
-  # DELETE /posts/1
   def destroy
+    @post = @posts.find(params[:id])
     @post.destroy
+
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to company_posts_path }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
+    def ensure_variables
+      @company = current_company
+      @posts = @company.posts
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params[:post]
+      params.require(:post).permit!
     end
+
+  def build_sub_attrs
+    @post = @post || Post.new
+
+    @post.requirements.build
+  end
 end

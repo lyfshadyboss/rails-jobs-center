@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
   scope 'company' do
-    resources :posts, as: 'company_posts'
+    resources :posts, as: 'company_posts' do
+      resources :requirements, only: :destroy
+    end
   end
 
   scope 'student' do

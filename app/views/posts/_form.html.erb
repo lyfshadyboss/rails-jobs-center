@@ -1,17 +1,56 @@
-<%= form_for(@post) do |f| %>
-  <% if @post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% @post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
+<div class="form-group">
+  <%= label_tag :post_title, "标题：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <%= form.text_field :title, class: "form-control" %>
   </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :post_description, "职位描述：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-8">
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :post_amount, "招聘人数：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <%= form.number_field :amount, :min => 1, :max => 100, class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :post_type, "职位总类：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <%= form.collection_select :post_type, PostType.all, :id, :name,
+                               {}, {class: 'form-control'} %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :post_sub_type, "职位细分：", class: "col-sm-1 control-label" %>
+  <div class="col-sm-2">
+    <%= form.collection_select :post_sub_type, PostSubType.all, :id, :name,
+                               {}, {class: 'form-control'} %>
+  </div>
+</div>
+
+<div class="form-group">
+  <%= label_tag :requirements, "职位需求：", class: "col-sm-1 control-label" %>
+
+  <div class="col-sm-2">
+    <button type="button" id="post-add-button" class="btn btn-primary glyphicon glyphicon-plus add-nested-requirement-field">
+      添加需求
+    </button>
+  </div>
+</div>
+
+<%= form.fields_for :requirements do |builder| %>
+    <%= render "posts/requirement_fields", :f => builder %>
 <% end %>
+
+<div class="form-group">
+  <div class="col-sm-offset-1 col-sm-10">
+    <button type="submit" class="btn btn-default">创建</button>
+  </div>
+</div>
