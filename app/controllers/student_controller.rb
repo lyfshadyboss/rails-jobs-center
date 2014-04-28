@@ -2,6 +2,7 @@ class StudentController < ApplicationController
   before_action :authenticate_student!
 
   def index
+    @posts = Post.last(10)
   end
 
   def information
