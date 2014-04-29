@@ -6,6 +6,7 @@ gem 'simple_form'
 gem 'rails_layout', group: [:development]
 gem 'bootstrap-datepicker-rails'
 gem 'will_paginate', '~> 3.0'
+gem 'roo'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
