@@ -3,6 +3,7 @@ class StudentController < ApplicationController
 
   def index
     @posts = Post.order("updated_at DESC").last(10)
+    @news = News.order("updated_at DESC").last(10)
   end
 
   def information

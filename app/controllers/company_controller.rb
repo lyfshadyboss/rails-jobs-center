@@ -3,6 +3,7 @@ class CompanyController < ApplicationController
 
   def index
     @resumes = Resume.order("updated_at DESC").last(10)
+    @news = News.order("updated_at DESC").last(10)
   end
 
   def search_resume
