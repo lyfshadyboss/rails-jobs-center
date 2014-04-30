@@ -1,0 +1,20 @@
+// Place all the styles related to the News controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.news-panel {
+  #headerwrap {
+    margin-top: 10px;
+    padding-top: 10px;
+    min-height: 100px;
+  }
+
+  p {
+    color: black;
+  }
+
+  #intro {
+    padding-top: 10px;
+    background-color: white
+  }
+}

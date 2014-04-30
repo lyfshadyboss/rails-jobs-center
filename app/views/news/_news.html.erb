@@ -1,0 +1,20 @@
+<!-- header wrap -->
+<div id="headerwrap">
+  <div class="container">
+    <div class="row centered">
+      <div class="col-lg-12">
+        <h2><%= @news.title %></h2>
+        <h5><%= @news.updated_at %></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  introduce section-->
+<div id="intro">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12"><p><%=simple_format(@news.content).html_safe %></p></div>
+    </div>
+  </div>
+</div>

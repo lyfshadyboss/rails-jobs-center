@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  scope 'admin' do
+    resources :news, as: 'admin_news'
+  end
+
   scope 'company' do
     resources :posts, as: 'company_posts' do
       resources :requirements, only: :destroy

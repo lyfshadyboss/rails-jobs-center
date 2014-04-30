@@ -1,0 +1,12 @@
+<div class="panel panel-info admin-panel-info">
+  <div class="panel-heading">创建新闻</div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([@admin, @news],
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "news/form", locals: {form: f} %>
+  <% end %>
+
+</div>
+
