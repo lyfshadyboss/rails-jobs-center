@@ -1,0 +1,2 @@
+module Company::AssetsHelper
+end

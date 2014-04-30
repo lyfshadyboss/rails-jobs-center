@@ -5,12 +5,24 @@ Rails.application.routes.draw do
   end
 
   scope 'company' do
+    resources :assets, as: 'company_assets', :controller => 'company/assets', :except => [:show] do
+      member do
+        get 'download'
+      end
+    end
+
     resources :posts, as: 'company_posts' do
       resources :requirements, only: :destroy
     end
   end
 
   scope 'student' do
+    resources :assets, as: 'student_assets', :controller => 'student/assets', :except => [:show] do
+      member do
+        get 'download'
+      end
+    end
+
     resources :resumes, as: 'student_resumes' do
       resources :educations, :glories, :interests, :sample_works, :skills, :work_experiences, only: :destroy
     end

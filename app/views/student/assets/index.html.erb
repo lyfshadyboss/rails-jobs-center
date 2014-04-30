@@ -1,0 +1,43 @@
+<div class="panel panel-info student-panel-info">
+  <div class="panel-heading">
+    文件资源
+  </div>
+
+  <div class="panel-body">
+    上传文件数量最多十个,　每个文件大小不超过 5 兆 <br/><br/>
+    <%= link_to "上传新文件", new_student_asset_path %>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>编号</th>
+        <th>描述</th>
+        <th>创建时间</th>
+        <th>修改时间</th>
+        <th>操作</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% index = 0 %>
+      <% @assets.each do |asset| %>
+          <tr>
+            <td><%= index += 1 %></td>
+            <td><%= asset.title %></td>
+            <td><%= asset.created_at %></td>
+            <td><%= asset.updated_at %></td>
+            <td>
+              <%= link_to "下载", download_student_asset_path(asset) %>
+              <%= link_to "编辑", edit_student_asset_path(asset) %>
+              <%= link_to "删除", student_asset_path(asset),
+                          method: :delete, data: {confirm: '确定删除吗？'} %>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
