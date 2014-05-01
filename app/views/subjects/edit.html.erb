@@ -1,0 +1,14 @@
+<div class="panel panel-info admin-panel-info">
+  <div class="panel-heading">
+    修改学院
+  </div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([current_admin, @subject],
+               url: admin_subject_path(@subject),
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "subjects/form", locals: {form: f} %>
+  <% end %>
+
+</div>

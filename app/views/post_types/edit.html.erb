@@ -1,0 +1,14 @@
+<div class="panel panel-info admin-panel-info">
+  <div class="panel-heading">
+    修改职位类型
+  </div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([current_admin, @post_type],
+               url: admin_post_type_path(@post_type),
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "post_types/form", locals: {form: f} %>
+  <% end %>
+
+</div>

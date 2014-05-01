@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>编号</th>
+      <th>名称</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% index = 0 %>
+    <% @post_types.each do |post_type| %>
+        <tr>
+          <td><%= index += 1 %></td>
+          <td><%= post_type.name %></td>
+          <td>
+            <%= link_to "编辑", edit_admin_post_type_path(post_type) %>
+            <%= link_to "删除", admin_post_type_path(post_type),
+                        method: :delete, data: {confirm: '确定删除吗？'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>编号</th>
+      <th>名称</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% index = 0 %>
+    <% @company_scales.each do |company_scale| %>
+        <tr>
+          <td><%= index += 1 %></td>
+          <td><%= company_scale.name %></td>
+          <td>
+            <%= link_to "编辑", edit_admin_company_scale_path(company_scale) %>
+            <%= link_to "删除", admin_company_scale_path(company_scale),
+                        method: :delete, data: {confirm: '确定删除吗？'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,14 @@
+<div class="panel panel-info admin-panel-info">
+  <div class="panel-heading">
+    修改专业
+  </div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([current_admin, @major],
+               url: admin_major_path(@major),
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "majors/form", locals: {form: f} %>
+  <% end %>
+
+</div>

@@ -1,7 +1,7 @@
 <%# add navigation links to this file %>
 <% if admin_signed_in? %>
     <li><%= link_to '新闻广播', admin_news_index_path %></li>
-    <li><%= link_to '设置', "" %></li>
+    <li><%= link_to '设置', admin_settings_path %></li>
     <li><%= link_to '我的帐户', edit_admin_registration_path %></li>
 <% end %>
 

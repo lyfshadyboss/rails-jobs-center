@@ -2,6 +2,13 @@ Rails.application.routes.draw do
 
   scope 'admin' do
     resources :news, as: 'admin_news'
+
+    resources :subjects, as: 'admin_subjects', only: [:new, :create, :edit, :update, :destroy]
+    resources :majors, as: 'admin_majors', only: [:new, :create, :edit, :update, :destroy]
+    resources :company_types, as: 'admin_company_types', only: [:new, :create, :edit, :update, :destroy]
+    resources :company_scales, as: 'admin_company_scales', only: [:new, :create, :edit, :update, :destroy]
+    resources :post_types, as: 'admin_post_types', only: [:new, :create, :edit, :update, :destroy]
+    resources :post_sub_types, as: 'admin_post_sub_types', only: [:new, :create, :edit, :update, :destroy]
   end
 
   scope 'company' do
@@ -52,6 +59,8 @@ Rails.application.routes.draw do
   get '/company/browse_resume/:id' => 'company#browse_resume'
   get '/company/browse_news/:id' => 'company#browse_news'
   patch '/company/commit_for_update' => 'company#commit_for_update'
+
+  get '/admin/settings' => 'admin#settings'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

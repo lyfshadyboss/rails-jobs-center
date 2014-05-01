@@ -1,0 +1,58 @@
+<div class="panel panel-info admin-panel-info admin-panel-subject">
+  <div class="panel-heading">学院</div>
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_subject_path %>
+  </div>
+
+  <%= render 'subjects/table' %>
+</div>
+
+<div class="panel panel-info admin-panel-info admin-panel-major">
+  <div class="panel-heading">专业</div>
+
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_major_path %>
+  </div>
+
+  <%= render 'majors/table' %>
+</div>
+
+<div class="panel panel-info admin-panel-info admin-panel-company-type">
+  <div class="panel-heading">公司类型</div>
+
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_company_type_path %>
+  </div>
+
+  <%= render 'company_types/table' %>
+</div>
+
+<div class="panel panel-info admin-panel-info admin-panel-company-scale">
+  <div class="panel-heading">公司规模</div>
+
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_company_scale_path %>
+  </div>
+
+  <%= render 'company_scales/table' %>
+</div>
+
+<div class="panel panel-info admin-panel-info admin-panel-post-type">
+  <div class="panel-heading">职位类型</div>
+
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_post_type_path %>
+  </div>
+
+  <%= render 'post_types/table' %>
+</div>
+
+<div class="panel panel-info admin-panel-info admin-panel-post-sub-type">
+  <div class="panel-heading">职位细分</div>
+
+  <div class="panel-body">
+    <%= link_to "添加", new_admin_post_sub_type_path %>
+  </div>
+
+  <%= render 'post_sub_types/table' %>
+</div>

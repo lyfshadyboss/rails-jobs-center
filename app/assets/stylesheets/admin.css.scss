@@ -5,4 +5,15 @@
 .admin-panel-info {
   margin-top : 20px;
   padding: 10px;
+  min-height: 200px;
+}
+
+.admin-panel-subject, .admin-panel-company-type, .admin-panel-post-type {
+  width: 48%;
+  float: left;
+}
+
+.admin-panel-major, .admin-panel-company-scale, .admin-panel-post-sub-type {
+  width: 48%;
+  float: right;
 }

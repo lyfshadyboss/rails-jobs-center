@@ -1,0 +1,13 @@
+<div class="panel panel-info admin-panel-info">
+  <div class="panel-heading">
+    添加新的公司类型
+  </div>
+
+  <div class="panel-body"></div>
+
+  <%= form_for([current_admin, @company_type],
+               html: {class: 'form-horizontal', role: 'form'}) do |f| %>
+      <%= render partial: "company_types/form", locals: {form: f} %>
+  <% end %>
+
+</div>

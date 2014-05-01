@@ -1,0 +1,26 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>编号</th>
+      <th>专业名称</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% index = 0 %>
+    <% @majors.each do |major| %>
+        <tr>
+          <td><%= index += 1 %></td>
+          <td><%= major.name %></td>
+          <td>
+            <%= link_to "编辑", edit_admin_major_path(major) %>
+            <%= link_to "删除", admin_major_path(major),
+                        method: :delete, data: {confirm: '确定删除吗？'} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
