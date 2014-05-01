@@ -14,13 +14,16 @@
 ActiveRecord::Schema.define(version: 20140430082849) do
 
   create_table "admins", force: true do |t|
-    t.string   "email",              default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
+  add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
 
   create_table "assets", force: true do |t|
     t.string   "title"
@@ -48,20 +51,23 @@ ActiveRecord::Schema.define(version: 20140430082849) do
   add_index "comments", ["resume_id"], name: "index_comments_on_resume_id"
 
   create_table "companies", force: true do |t|
-    t.string   "email",              default: "", null: false
-    t.string   "encrypted_password", default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.string   "address"
     t.string   "telephone"
     t.string   "name"
     t.text     "introduce"
-    t.integer  "company_type",       default: 0
-    t.integer  "company_scale",      default: 0
+    t.integer  "company_type",           default: 0
+    t.integer  "company_scale",          default: 0
     t.string   "site"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true
+  add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
 
   create_table "company_scales", force: true do |t|
     t.string   "name"
@@ -204,18 +210,20 @@ ActiveRecord::Schema.define(version: 20140430082849) do
   add_index "skills", ["resume_id"], name: "index_skills_on_resume_id"
 
   create_table "students", force: true do |t|
-    t.string   "email",               default: "", null: false
-    t.string   "encrypted_password",  default: "", null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
     t.string   "name"
-    t.integer  "gender",              default: 0
+    t.integer  "gender",                 default: 0
     t.integer  "age"
     t.string   "social_id"
     t.date     "birthday"
     t.string   "student_id"
-    t.integer  "group",               default: 0
-    t.integer  "grade",               default: 0
-    t.integer  "subject",             default: 0
-    t.integer  "major",               default: 0
+    t.integer  "group",                  default: 0
+    t.integer  "grade",                  default: 0
+    t.integer  "subject",                default: 0
+    t.integer  "major",                  default: 0
     t.string   "address"
     t.string   "telephone"
     t.string   "tencent_qq"
@@ -226,6 +234,7 @@ ActiveRecord::Schema.define(version: 20140430082849) do
   end
 
   add_index "students", ["email"], name: "index_students_on_email", unique: true
+  add_index "students", ["reset_password_token"], name: "index_students_on_reset_password_token", unique: true
 
   create_table "subjects", force: true do |t|
     t.string   "name"

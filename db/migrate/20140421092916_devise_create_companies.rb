@@ -5,6 +5,10 @@ class DeviseCreateCompanies < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      ## Recoverable
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
+
       t.string :address
       t.string :telephone
 
@@ -18,5 +22,6 @@ class DeviseCreateCompanies < ActiveRecord::Migration
     end
 
     add_index :companies, :email,                unique: true
+    add_index :companies, :reset_password_token, unique: true
   end
 end

@@ -5,6 +5,10 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
+      ## Recoverable
+      t.string   :reset_password_token
+      t.datetime :reset_password_sent_at
+
       t.string :name
       t.integer :gender, :default => 0
       t.integer :age
@@ -29,5 +33,6 @@ class DeviseCreateStudents < ActiveRecord::Migration
     end
 
     add_index :students, :email,                unique: true
+    add_index :students, :reset_password_token, unique: true
   end
 end
