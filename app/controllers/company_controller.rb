@@ -1,4 +1,5 @@
 class CompanyController < ApplicationController
+  layout 'company'
   before_action :authenticate_company!
 
   def index
