@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   patch '/company/commit_for_update' => 'company#commit_for_update'
 
   get '/admin/settings' => 'admin#settings'
+  post '/admin/import_student_accounts' => 'admin#import_student_accounts'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
