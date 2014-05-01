@@ -30,13 +30,6 @@
       </div>
 
       <div class="form-group">
-        <%= label_tag :student_birthday, "出生日期：", class: "col-sm-1 control-label" %>
-        <div class="col-sm-2">
-          <%= f.text_field :birthday, {class: "form-control datepicker"} %>
-        </div>
-      </div>
-
-      <div class="form-group">
         <%= label_tag :student_address, "地址：", class: "col-sm-1 control-label" %>
         <div class="col-sm-6">
           <%= f.text_field :address, {class: "form-control"} %>
@@ -106,13 +99,6 @@
         <%= label_tag :student_self_description, "自评：", class: "col-sm-1 control-label" %>
         <div class="col-sm-6">
           <%= f.text_area :self_description, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <%= label_tag :student_teacher_description, "辅导员评语：", class: "col-sm-1 control-label" %>
-        <div class="col-sm-6">
-          <%= f.text_area :teacher_description, class: "form-control", :disabled => true %>
         </div>
       </div>
 

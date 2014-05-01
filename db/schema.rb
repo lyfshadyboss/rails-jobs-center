@@ -218,7 +218,6 @@ ActiveRecord::Schema.define(version: 20140430082849) do
     t.integer  "gender",                 default: 0
     t.integer  "age"
     t.string   "social_id"
-    t.date     "birthday"
     t.string   "student_id"
     t.integer  "group",                  default: 0
     t.integer  "grade",                  default: 0
@@ -228,7 +227,6 @@ ActiveRecord::Schema.define(version: 20140430082849) do
     t.string   "telephone"
     t.string   "tencent_qq"
     t.text     "self_description"
-    t.text     "teacher_description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

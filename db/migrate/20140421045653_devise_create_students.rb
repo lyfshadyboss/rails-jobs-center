@@ -13,7 +13,6 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.integer :gender, :default => 0
       t.integer :age
       t.string :social_id
-      t.date :birthday
 
       t.string :student_id
       t.integer :group, :default => 0
@@ -27,7 +26,6 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.string :tencent_qq
 
       t.text :self_description
-      t.text :teacher_description
 
       t.timestamps
     end
