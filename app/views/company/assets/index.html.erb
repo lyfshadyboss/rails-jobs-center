@@ -4,8 +4,11 @@
   </div>
 
   <div class="panel-body">
-    上传文件数量最多十个,　每个文件大小不超过 5 兆 <br/><br/>
-    <%= link_to "上传新文件", new_company_asset_path %>
+    <% if @assets.size < 10 %>
+        上传文件数量最多十个,　每个文件大小不超过 5 兆 <br/><br/>
+        <%= link_to "上传新文件", new_company_asset_path %>
+    <% end %>
+
   </div>
 
   <div class="table-responsive">
@@ -31,7 +34,6 @@
             <td><%= asset.updated_at %></td>
             <td>
               <%= link_to "下载", download_company_asset_path(asset) %>
-              <%= link_to "编辑", edit_company_asset_path(asset) %>
               <%= link_to "删除", company_asset_path(asset),
                           method: :delete, data: {confirm: '确定删除吗？'} %>
             </td>

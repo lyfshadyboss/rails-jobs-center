@@ -15,7 +15,7 @@
         <tr>
           <td><%= index += 1 %></td>
           <td>
-            <%= link_to news.title, "" %>
+            <%= link_to news.title, (@browse_news_base_path + "/#{news.id}") %>
           </td>
           <td><%= news.updated_at %></td>
         </tr>

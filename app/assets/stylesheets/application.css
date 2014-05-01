@@ -59,3 +59,11 @@
 .comment-list span a {
     margin-left: 10px;
 }
+
+.authform {
+    max-width: 40%;
+}
+
+.authform p {
+    color:black
+}

@@ -4,6 +4,7 @@ class StudentController < ApplicationController
   def index
     @posts = Post.order("updated_at DESC").last(10)
     @news = News.order("updated_at DESC").last(10)
+    @browse_news_base_path = "/student/browse_news"
   end
 
   def information
@@ -37,6 +38,10 @@ class StudentController < ApplicationController
   def browse_post
     @post = Post.find(params[:id])
     @company = @post.company
+  end
+
+  def browse_news
+    @news = News.find(params[:id])
   end
 
   def commit_for_update

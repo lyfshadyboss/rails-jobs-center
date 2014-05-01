@@ -44,11 +44,13 @@ Rails.application.routes.draw do
   get '/student/information' => 'student#information'
   get '/student/search_post' => 'student#search_post'
   get '/student/browse_post/:id' => 'student#browse_post'
+  get '/student/browse_news/:id' => 'student#browse_news'
   patch '/student/commit_for_update' => 'student#commit_for_update'
 
   get '/company/information' => 'company#information'
   get '/company/search_resume' => 'company#search_resume'
   get '/company/browse_resume/:id' => 'company#browse_resume'
+  get '/company/browse_news/:id' => 'company#browse_news'
   patch '/company/commit_for_update' => 'company#commit_for_update'
 
   # The priority is based upon order of creation: first created -> highest priority.

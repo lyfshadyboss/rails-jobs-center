@@ -4,6 +4,7 @@ class CompanyController < ApplicationController
   def index
     @resumes = Resume.order("updated_at DESC").last(10)
     @news = News.order("updated_at DESC").last(10)
+    @browse_news_base_path = "/company/browse_news"
   end
 
   def search_resume
@@ -39,6 +40,10 @@ class CompanyController < ApplicationController
   def browse_resume
     @resume = Resume.find(params[:id])
     @student = @resume.student
+  end
+
+  def browse_news
+    @news = News.find(params[:id])
   end
 
   def information
