@@ -1,3 +1,17 @@
+<!-- header wrap -->
+<div id="headerwrap">
+  <div class="container">
+    <div class="row centered">
+      <div class="col-lg-12">
+        <h2><%= @resume.student.name %></h2>
+        <h5><%= @resume.student.age %>岁 | <%= @resume.title %></h5>
+        <br/>
+        <h5><%= @resume.updated_at %></h5>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!--  introduce section-->
 <div id="intro">
   <div class="container">
@@ -12,41 +26,53 @@
 </div>
 
 <!--  education section-->
-<div class="container desc">
-  <%= render partial: 'resumes/education', collection: @resume.educations %>
-  <hr/>
-</div>
+<% if @resume.educations.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/education', collection: @resume.educations %>
+      <hr/>
+    </div>
+<% end %>
 
 <!--  work experience section-->
-<div class="container desc">
-  <%= render partial: 'resumes/work_experience', collection: @resume.work_experiences %>
-  <hr/>
-</div>
+<% if @resume.work_experiences.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/work_experience', collection: @resume.work_experiences %>
+      <hr/>
+    </div>
+<% end %>
 
 <!--  glory section-->
-<div class="container desc">
-  <%= render partial: 'resumes/glory', collection: @resume.glories %>
+<% if @resume.glories.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/glory', collection: @resume.glories %>
 
-  <hr/>
-</div>
+      <hr/>
+    </div>
+<% end %>
 
 <!--  skill section-->
-<div class="container desc">
-  <%= render partial: 'resumes/skill', collection: @resume.skills %>
+<% if @resume.skills.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/skill', collection: @resume.skills %>
 
-  <hr/>
-</div>
+      <hr/>
+    </div>
+<% end %>
 
 <!--  sample work section-->
-<div class="container desc">
-  <%= render partial: 'resumes/sample_work', collection: @resume.sample_works %>
-  <hr/>
-</div>
+<% if @resume.sample_works.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/sample_work', collection: @resume.sample_works %>
+      <hr/>
+    </div>
+<% end %>
 
 <!--  interest section-->
-<div class="container desc">
-  <%= render partial: 'resumes/interest', collection: @resume.interests %>
-</div>
+<% if @resume.interests.length > 0 %>
+    <div class="container desc">
+      <%= render partial: 'resumes/interest', collection: @resume.interests %>
+    </div>
+<% end %>
 
 <div id="footwrap">
   <div class="container">

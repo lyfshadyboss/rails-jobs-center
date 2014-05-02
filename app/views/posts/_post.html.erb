@@ -20,7 +20,7 @@
         <h5>公司介绍</h5>
       </div>
 
-      <div class="col-lg-6"><p><%= @company.introduce %></p></div>
+      <div class="col-lg-8"><%=simple_format(@company.introduce).html_safe %></div>
     </div>
   </div>
 </div>
@@ -32,7 +32,7 @@
       <h5>职位描述</h5>
     </div>
 
-    <div class="col-lg-6"><p><%= @post.description %></p></div>
+    <div class="col-lg-6"><%=simple_format(@post.description).html_safe %></div>
   </div>
 </div>
 

@@ -8,13 +8,13 @@
         <div class="col-lg-2">
           <strong class="search_label">行业：</strong>
           <%= select_tag "post_type", options_from_collection_for_select(PostType.all, :id, :name, @company_type),
-                         :class => 'form-control' %>
+                         :class => 'form-control', :include_blank => true %>
         </div>
 
         <div class="col-lg-2">
           <strong class="search_label">分类：</strong>
           <%= select_tag "post_sub_type", options_from_collection_for_select(PostSubType.all, :id, :name, @company_sub_type),
-                         :class => 'form-control' %>
+                         :class => 'form-control', :include_blank => true %>
         </div>
 
         <div class="col-lg-3">

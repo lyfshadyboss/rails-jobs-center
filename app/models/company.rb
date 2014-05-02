@@ -3,4 +3,7 @@ class Company < ActiveRecord::Base
 
   has_many :posts, dependent: :destroy
   has_many :assets, dependent: :destroy
+
+  has_many :delivers, through: :posts
+
 end

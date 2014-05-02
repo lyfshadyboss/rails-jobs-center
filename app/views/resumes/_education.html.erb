@@ -17,7 +17,7 @@
     <p>
       <sm><%= education.start_date %> ~ <%= education.end_date %></sm>
       <br/>
-      <% if education.end_date < Date.today %>
+      <% if education.end_date > Date.today %>
           <imp>
             <sm>正在就读</sm>
           </imp>

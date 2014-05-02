@@ -25,3 +25,14 @@
   width: 48%;
   float: right;
 }
+
+#deliver-to-post {
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  width: 300px;
+  background-color: rgb(223, 221, 221);
+  border-radius: 5px;
+  padding: 10px;
+  z-index: 999;
+}

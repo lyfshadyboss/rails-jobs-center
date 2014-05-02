@@ -1,0 +1,31 @@
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>编号</th>
+      <th>投递者</th>
+      <th>职位</th>
+      <th>简历</th>
+      <th></th>
+    </tr>
+    </thead>
+
+    <tbody>
+
+    <% index = 0 %>
+    <% @delivers.each do |deliver| %>
+        <% resume = Resume.find(deliver.resume_id)
+           post= Post.find(deliver.post_id)
+        %>
+        <tr>
+          <td><%= index += 1 %></td>
+          <td><%= resume.student.name %></td>
+          <td><%= link_to post.title, company_post_path(post) %></td>
+          <td><%= link_to resume.title, company_browse_resume_path(resume) %></td>
+          <td><%= link_to "删除", deliver_path(deliver), method: :delete,
+                          data: {conform: "确定删除吗？"} %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

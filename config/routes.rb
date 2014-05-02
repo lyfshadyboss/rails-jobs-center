@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   end
 
   scope 'company' do
+    resources :delivers, only: [:destroy]
+
     resources :assets, as: 'company_assets', :controller => 'company/assets', :except => [:show] do
       member do
         get 'download'
@@ -53,6 +55,7 @@ Rails.application.routes.draw do
   get '/student/browse_post/:id' => 'student#browse_post'
   get '/student/browse_news/:id' => 'student#browse_news'
   patch '/student/commit_for_update' => 'student#commit_for_update'
+  post '/student/deliver' => 'student#deliver_to_post'
 
   get '/company/information' => 'company#information'
   get '/company/search_resume' => 'company#search_resume'

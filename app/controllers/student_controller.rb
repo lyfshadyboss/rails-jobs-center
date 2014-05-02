@@ -51,6 +51,16 @@ class StudentController < ApplicationController
     redirect_to student_information_path
   end
 
+  def deliver_to_post
+    post_id = params[:post][:id]
+    resume_id = params[:selected_resume]
+
+    deliver = Deliver.create(:resume_id => resume_id, :post_id => post_id)
+    message = deliver.save ? "投递成功！" : "投递失败！"
+
+    redirect_to :back, notice: message
+  end
+
   private
 
   def student_params

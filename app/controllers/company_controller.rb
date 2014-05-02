@@ -5,6 +5,7 @@ class CompanyController < ApplicationController
   def index
     @resumes = Resume.order("updated_at DESC").last(10)
     @news = News.order("updated_at DESC").last(10)
+    @delivers = current_company.delivers
     @browse_news_base_path = "/company/browse_news"
   end
 

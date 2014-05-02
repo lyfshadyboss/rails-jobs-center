@@ -4,4 +4,6 @@ class Student < ActiveRecord::Base
   has_many :resumes, dependent: :destroy
   has_many :assets, dependent: :destroy
 
+  has_many :delivers, through: :resumes
+
 end
