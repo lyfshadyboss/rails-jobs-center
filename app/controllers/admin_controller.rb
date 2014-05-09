@@ -66,9 +66,11 @@ class AdminController < ApplicationController
       email = oo.cell(line, 'L')
       address = oo.cell(line, 'M')
 
+      inital_passwd = social_id[-6, 6]
+
       Student.create(:email => email,
-                     :password => '111111',
-                     :password_confirmation => '111111',
+                     :password => inital_passwd,
+                     :password_confirmation => inital_passwd,
                      :name => name,
                      :student_id => student_id,
                      :age => age,
