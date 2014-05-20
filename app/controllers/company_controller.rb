@@ -44,6 +44,12 @@ class CompanyController < ApplicationController
     @student = @resume.student
   end
 
+  def browse_student
+    @target_student = Student.find(params[:id])
+
+    render 'student/overview'
+  end
+
   def browse_news
     @news = News.find(params[:id])
   end

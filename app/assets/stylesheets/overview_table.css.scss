@@ -1,0 +1,16 @@
+.css_overview_table {
+  width: 100%;
+
+  box-shadow: 5px 5px 10px #888888;
+  border:1px solid #000000;
+
+  .group {
+    font-weight: bold;
+    font-size: 15px;
+  }
+
+  td {
+    border: 1px solid;
+    padding: 5px;
+  }
+}

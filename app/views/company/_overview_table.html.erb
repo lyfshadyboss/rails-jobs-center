@@ -1,0 +1,43 @@
+<table class="css_overview_table">
+  <tr>
+    <td colspan="3" class="group">基本信息</td>
+  </tr>
+
+  <tr>
+    <td>公司名称： <%= c.name %></td>
+    <td>公司类型： <%= CompanyType.find(c.company_type).name if c.company_type != 0 %></td>
+    <td>公司规模： <%= CompanyType.find(c.company_scale).name if c.company_scale != 0 %></td>
+  </tr>
+
+  <tr>
+    <td colspan="3">公司网站：<%= link_to c.site, c.site %></td>
+  </tr>
+
+  <tr>
+    <td colspan="3">公司介绍： </br><%= c.introduce %></td>
+  </tr>
+
+  <tr>
+    <td colspan="3" class="group">所有职位</td>
+  </tr>
+
+  <% c.posts.each do |post| %>
+      <tr>
+        <td>职位名称：<%= link_to post.title, student_browse_post_path(post) %></td>
+        <td>创建时间：<%= post.created_at  %></td>
+        <td>修改时间：<%= post.updated_at  %></td>
+      </tr>
+  <% end %>
+
+  <tr>
+    <td colspan="3" class="group">文件资源</td>
+  </tr>
+
+  <% c.assets.each do |asset| %>
+      <tr>
+        <td>资源描述：<%= link_to asset.title, download_company_asset_path(asset) %></td>
+        <td>创建时间：<%= asset.created_at  %></td>
+        <td>修改时间：<%= asset.updated_at  %></td>
+      </tr>
+  <% end %>
+</table>

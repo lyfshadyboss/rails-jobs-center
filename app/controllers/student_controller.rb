@@ -41,6 +41,11 @@ class StudentController < ApplicationController
     @company = @post.company
   end
 
+  def browse_company
+    @target_company = Company.find(params[:id])
+    render 'company/overview'
+  end
+
   def browse_news
     @news = News.find(params[:id])
   end

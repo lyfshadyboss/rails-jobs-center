@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get '/student/search_post' => 'student#search_post'
   get '/student/browse_post/:id' => 'student#browse_post'
   get '/student/browse_news/:id' => 'student#browse_news'
+  get '/student/browse_company/:id' => 'student#browse_company'
   patch '/student/commit_for_update' => 'student#commit_for_update'
   post '/student/deliver' => 'student#deliver_to_post'
 
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
   get '/company/search_resume' => 'company#search_resume'
   get '/company/browse_resume/:id' => 'company#browse_resume'
   get '/company/browse_news/:id' => 'company#browse_news'
+  get '/company/browse_student/:id' => 'company#browse_student'
   patch '/company/commit_for_update' => 'company#commit_for_update'
 
   get '/admin/settings' => 'admin#settings'

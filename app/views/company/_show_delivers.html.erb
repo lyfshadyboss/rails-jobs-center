@@ -19,7 +19,7 @@
         %>
         <tr>
           <td><%= index += 1 %></td>
-          <td><%= resume.student.name %></td>
+          <td><%= link_to resume.student.name, company_browse_student_path(resume.student) %></td>
           <td><%= link_to post.title, company_post_path(post) %></td>
           <td><%= link_to resume.title, company_browse_resume_path(resume) %></td>
           <td><%= link_to "删除", deliver_path(deliver), method: :delete,

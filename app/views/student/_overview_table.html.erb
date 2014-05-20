@@ -1,0 +1,53 @@
+<table class="css_overview_table">
+  <tr>
+    <td colspan="5" class="group">基本信息</td>
+  </tr>
+
+  <tr>
+    <td>姓名：<%= s.name %></td>
+    <td>性别：<%= Gender.find(s.gender).name if s.gender > 0 %></td>
+    <td>年龄：<%= s.age %></td>
+    <td>身份证：<%= s.social_id %></td>
+    <td rowspan="3">
+      <%= image_tag 'profile.jpg' %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>年级：<%= Grade.find(s.grade).name if s.grade > 0%></td>
+    <td>学号：<%= s.student_id %></td>
+    <td>学院：<%= Subject.find(s.subject).name if s.subject > 0 %></td>
+    <td>专业：<%= Major.find(s.major).name if s.major > 0 %></td>
+  </tr>
+
+  <tr>
+    <td>地址：<%= s.address %></td>
+    <td>邮箱：<%= mail_to s.email %></td>
+    <td>电话：<%= s.telephone %></td>
+    <td>QQ：<%= s.tencent_qq %></td>
+  </tr>
+
+  <tr>
+    <td colspan="5" class="group">所有简历</td>
+  </tr>
+
+  <% s.resumes.each do |resume| %>
+      <tr>
+        <td colspan="3">简历名称：<%= link_to resume.title, company_browse_resume_path(resume) %></td>
+        <td colspan="1">创建时间：<%= resume.created_at  %></td>
+        <td colspan="1">修改时间：<%= resume.updated_at  %></td>
+      </tr>
+  <% end %>
+
+  <tr>
+    <td colspan="5" class="group">文件资源</td>
+  </tr>
+
+  <% s.assets.each do |asset| %>
+      <tr>
+        <td colspan="3">资源描述：<%= link_to asset.title, download_student_asset_path(asset) %></td>
+        <td colspan="1">创建时间：<%= asset.created_at  %></td>
+        <td colspan="1">修改时间：<%= asset.updated_at  %></td>
+      </tr>
+  <% end %>
+</table>

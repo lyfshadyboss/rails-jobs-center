@@ -15,7 +15,9 @@
     <% @posts.each do |post| %>
         <tr>
           <td><%= index += 1 %></td>
-          <td><%= post.company.name %></td>
+          <td>
+            <%= link_to post.company.name, student_browse_company_path(post.company) %>
+          </td>
           <td>
             <%= link_to post.title, student_browse_post_path(post) %>
           </td>
