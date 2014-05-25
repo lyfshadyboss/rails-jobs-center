@@ -77,7 +77,13 @@ class AdminController < ApplicationController
                      :telephone => telephone,
                      :tencent_qq => qq,
                      :address => address,
-                     :social_id => social_id)
+                     :social_id => social_id,
+
+                     :gender => Gender.find_by_name(gender).id,
+                     :major => Major.find_by_name(major).id,
+                     :subject => Subject.find_by_name(subject).id,
+                     :grade => Grade.find_by_name(grade).id)
     end
   end
+
 end
